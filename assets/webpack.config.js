@@ -13,41 +13,44 @@ module.exports = (env, options) => {
     optimization: {
       minimizer: [
         new TerserPlugin({ cache: true, parallel: true, sourceMap: devMode }),
-        new OptimizeCSSAssetsPlugin({})
-      ]
+        new OptimizeCSSAssetsPlugin({}),
+      ],
+    },
+    resolve: {
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
     entry: {
-      'app': glob.sync('./vendor/**/*.js').concat(['./js/app.js'])
+      app: './js/app.tsx',
     },
     output: {
-      filename: '[name].js',
+      filename: 'app.js',
       path: path.resolve(__dirname, '../priv/static/js'),
-      publicPath: '/js/'
+      publicPath: '/js/',
     },
     devtool: devMode ? 'eval-cheap-module-source-map' : undefined,
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.(j|t)sx?$/,
           exclude: /node_modules/,
           use: {
-            loader: 'babel-loader'
-          }
+            loader: 'babel-loader',
+          },
         },
         {
           test: /\.[s]?css$/,
           use: [
+            'style-loader',
             MiniCssExtractPlugin.loader,
             'css-loader',
             'sass-loader',
           ],
-        }
-      ]
+        },
+      ],
     },
     plugins: [
       new MiniCssExtractPlugin({ filename: '../css/app.css' }),
-      new CopyWebpackPlugin([{ from: 'static/', to: '../' }])
-    ]
-    .concat(devMode ? [new HardSourceWebpackPlugin()] : [])
-  }
+      new CopyWebpackPlugin([{ from: 'static/', to: '../' }]),
+    ].concat(devMode ? [new HardSourceWebpackPlugin()] : []),
+  };
 };
