@@ -38,7 +38,7 @@ module.exports = (env, options) => {
           },
         },
         {
-          test: /\.[s]?css$/,
+          test: /\.s(c|a)ss$/,
           use: [
             'style-loader',
             MiniCssExtractPlugin.loader,
@@ -51,6 +51,6 @@ module.exports = (env, options) => {
     plugins: [
       new MiniCssExtractPlugin({ filename: '../css/app.css' }),
       new CopyWebpackPlugin([{ from: 'static/', to: '../' }]),
-    ].concat(devMode ? [new HardSourceWebpackPlugin()] : []),
+    ],
   };
 };
