@@ -5,7 +5,7 @@ defmodule Memor.Todos.Item do
   schema "items" do
     field :completed_at, :utc_datetime
     field :content, :string
-
+    
     timestamps()
   end
 

@@ -1,30 +1,46 @@
 .todo_list
   margin: 2rem
+  --primary: rgb(0, 122, 255)
+
 
 .todo_list__header
   font-family: "Raleway", sans-serif
   font-weight: 600
   font-size: 2rem
-  color: rgb(0, 122, 255)
+  color: var(--primary)
 
 .todo_list__list
   margin: 0
 
-.todo_list__item
+.todo_item
   line-height: 2.5rem
   list-style: none
-  border-bottom: 1px solid #ddd
   position: relative
 
-  &::before
+.todo_item__content
+  margin: 0 0 0 3rem
+  border-bottom: 1px solid #ddd
+
+
+
+.todo_item__toggle
+  position: absolute
+  height: 1.5rem
+  width: 1.5rem
+  border: 1px solid #ccc
+  border-radius: 50%
+  // left: -1rem
+  top: 50%
+  transform: translateY(-50%)
+  &:focus
+    outline: none
+
+.todo_item__toggle--completed
+  background: var(--primary)
+  &::after
     position: absolute
     content: ''
-    height: 1.5rem
-    width: 1.5rem
-    border: 1px solid #ccc
+    inset: 1px
+    border: 1.5px solid #fff
     border-radius: 50%
-    left: -2.2rem
-    top: 50%
-    transform: translateY(-50%)
-
 

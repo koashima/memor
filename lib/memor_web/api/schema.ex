@@ -25,6 +25,7 @@ defmodule MemorWeb.Api.Schema do
         end
       end)
     end
+
     field :toggle_todo_item, :todo_item do
       arg(:id, non_null(:id))
       resolve(fn %{id: item_id}, _ ->
@@ -34,16 +35,12 @@ defmodule MemorWeb.Api.Schema do
   end
 
   query do
-    field :hello, :string do
-      resolve(fn _, _ ->
-        {:ok, "hello world!"}
-      end)
-    end
-
-    field :todo_items, non_null(list_of(:todo_item)) do #[TodoItem!]!
+    #[TodoItem!]!
+    field :todo_items, non_null(list_of(:todo_item)) do
       resolve(fn _, _ ->
         {:ok, Todos.list_items()}
       end)
     end
   end
+
 end
