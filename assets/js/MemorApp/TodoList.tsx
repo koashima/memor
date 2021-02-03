@@ -14,6 +14,7 @@ const TodoList = () => {
         id
         content
         isCompleted
+        insertedAt
       }
     }
   `);

@@ -19,7 +19,7 @@ const TOGGLE_TODO_ITEM = gql`
   }
 `;
 
-const TodoListItem = ({ id, content, isCompleted }: TodoItem) => {
+const TodoListItem = ({ id, content, isCompleted, insertedAt }: TodoItem) => {
   const [itemText, setItemText] = useState(content);
 
   const [toggleItem] = useMutation(TOGGLE_TODO_ITEM);
@@ -49,6 +49,7 @@ const TodoListItem = ({ id, content, isCompleted }: TodoItem) => {
         }`}
         onClick={handleToggle}
       />
+      <small className="todo_item__timestamp">{insertedAt}</small>
       <input
         className="todo_item__content "
         value={itemText}

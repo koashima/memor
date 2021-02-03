@@ -1,10 +1,12 @@
 defmodule MemorWeb.Api.Schema do
   use Absinthe.Schema
   alias Memor.Todos
+  import_types Absinthe.Type.Custom
 
   object :todo_item do
     field :id,  non_null(:id) #ID!
     field :content, non_null(:string)
+    field :inserted_at, non_null(:naive_datetime)
     field :is_completed, non_null(:boolean) do
       resolve(fn %{completed_at: completed_at}, _, _ ->
         {:ok, !is_nil(completed_at)}
