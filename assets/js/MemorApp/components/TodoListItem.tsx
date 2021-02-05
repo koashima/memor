@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useCallback, useState } from 'react';
-import TodoItem from './types/TodoItem';
+import TodoItem from '../types/TodoItem';
 import { gql, useMutation } from '@apollo/client';
-import { GET_TODO_ITEMS } from './TodoList';
+import { GET_TODO_ITEMS } from '../TodoList';
 
 const TOGGLE_TODO_ITEM = gql`
   mutation($id: ID!) {

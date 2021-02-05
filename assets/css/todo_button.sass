@@ -1,0 +1,25 @@
+.new_todo_button
+  display: block
+  font-family: $font-main
+  height: 1.5rem
+  width: 1.5rem
+  background-color: var(--primary)
+  font-size: 1rem
+  color: #ffffff
+  border: none
+  border-radius: 100%
+  outline: none
+  &:hover
+    cursor: pointer
+  &::after
+    content: "new reminder"
+    height: 100%
+    position: relative
+    right: -17px
+    color: var(--primary)
+    white-space: nowrap
+
+
+
+.todo_list__footer
+  display: -webkit-inline-flex

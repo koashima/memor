@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,600&display=swap');
+@import 'variables';
 @import 'todo_list';
+@import 'todo_button';
 
 body {
   margin: 0;
@@ -10,7 +12,7 @@ body {
   h1 {
     font-size: 72px;
     color: #ddd;
-    font-family: 'Raleway', sans-serif;
+    font-family: $font-main;
     font-weight: 600;
     text-align: center;
   }
