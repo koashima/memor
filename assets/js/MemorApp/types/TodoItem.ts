@@ -4,4 +4,5 @@ export default interface TodoItem {
   content: string;
   isCompleted: boolean;
   insertedAt: string;
+  updatedAt: string;
 }

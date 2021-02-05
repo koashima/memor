@@ -7,6 +7,7 @@ defmodule MemorWeb.Api.Schema do
     field :id,  non_null(:id) #ID!
     field :content, non_null(:string)
     field :inserted_at, non_null(:naive_datetime)
+    field :updated_at, :naive_datetime
     field :is_completed, non_null(:boolean) do
       resolve(fn %{completed_at: completed_at}, _, _ ->
         {:ok, !is_nil(completed_at)}
@@ -37,7 +38,14 @@ defmodule MemorWeb.Api.Schema do
       end)
     end
 
-
+    field :delete_todo_item, :boolean do
+      arg(:id, non_null(:id))
+      resolve(fn %{id: id}, _ ->
+        todo = Todos.get_item!(id)
+        Todos.delete_item(todo)
+        {:ok, true}
+      end)
+    end
 
     field :toggle_todo_item, :todo_item do
       arg(:id, non_null(:id))
