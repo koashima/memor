@@ -1,14 +1,19 @@
 import React from 'react';
 import PlusIcon from './PlusIcon';
 
-const NewTodoButton = () => {
+interface Props {
+  onClick(): void;
+}
+
+const NewTodoButton = ({ onClick }: Props) => {
   return (
     <div className="todo_list__footer">
-      <button className="new_todo_button">
+      <button className="new_todo_button" onClick={onClick}>
         <span className="new_todo_button__icon">
           <PlusIcon />
         </span>
-      new reminder</button>
+        new reminder
+      </button>
     </div>
   );
 };
