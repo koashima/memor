@@ -3,9 +3,11 @@ import { gql, useQuery } from '@apollo/client';
 import TodoItem from './types/TodoItem';
 import TodoListItem from './components/TodoListItem';
 import NewTodoButton from './components/NewTodoButton';
+
 interface TodoItemsQueryResults {
   todoItems: TodoItem[];
 }
+
 export const GET_TODO_ITEMS = gql`
   {
     todoItems {
@@ -17,6 +19,7 @@ export const GET_TODO_ITEMS = gql`
     }
   }
 `;
+
 const TodoList = () => {
   const { data, loading } = useQuery<TodoItemsQueryResults>(GET_TODO_ITEMS);
 
@@ -28,9 +31,10 @@ const TodoList = () => {
           <TodoListItem key={item.id} {...item} />
         ))}
       </div>
-      <div className="todo_list__footer">
+      <div className="todo_list__spacer"></div>
+      <footer className="todo_list__footer">
         <NewTodoButton />
-      </div>
+      </footer>
     </div>
   );
 };
