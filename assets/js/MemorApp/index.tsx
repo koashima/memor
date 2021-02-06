@@ -6,7 +6,6 @@ import TodoList from './TodoList';
 const MemorApp = () => {
   return (
     <ApolloProvider client={client}>
-      <h1>~ memor ~</h1>
       <TodoList />
     </ApolloProvider>
   );

@@ -25,7 +25,8 @@ const TodoList = () => {
 
   return (
     <div className="todo_list">
-      <h2 className="todo_list__header">TODOS</h2>
+      <h1>~ memor ~</h1>
+      <h2 className="todo_list__header">REMINDERS</h2>
       <div className="todo_list__list">
         {data?.todoItems?.map((item: TodoItem) => (
           <TodoListItem key={item.id} {...item} />
