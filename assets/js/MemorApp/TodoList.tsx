@@ -34,7 +34,7 @@ const TodoList = () => {
         ))}
         {newTodo ? <NewTodoForm /> : null }
       </div>
-      <div className="todo_list__spacer"></div>
+      <div className="todo_list__spacer" onClick={() => setNewTodo(false)}></div>
       <footer className="todo_list__footer">
         <NewTodoButton onClick={() => setNewTodo(true)}/>
       </footer>

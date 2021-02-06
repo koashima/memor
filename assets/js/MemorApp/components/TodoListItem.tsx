@@ -79,13 +79,13 @@ const TodoListItem = ({
         onClick={handleToggle}
       />
       <small className="todo_item__timestamp">CREATED: {insertedAt}</small>
-      <small className="todo_item__timestamp">UPDATED: {updatedAt}</small>
       <input
         className="todo_item__content "
         value={itemText}
         onChange={onChange}
         onBlur={onBlur}
       />
+      <small className="todo_item__timestamp">UPDATED: {updatedAt}</small>
     </div>
   );
 };
